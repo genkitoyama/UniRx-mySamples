@@ -83,7 +83,7 @@ namespace Samples.Section4.Filters
             Debug.Log("--- single ---");
 
             Observable.Range(0, 10)
-                      .Single( x => x == 5)     //5のみ通過させる
+                      .Single( x => x == 5)     //5のみ通過させる（合計1つのみ）
                       .Subscribe( x => Debug.Log(x),
                                  ex => Debug.LogError(ex),
                                  () => Debug.Log("OnCompleted"));
@@ -157,7 +157,7 @@ namespace Samples.Section4.Filters
 
             Debug.Log("--- throttle ---");
 
-            //gameobjectが静止するまでまってからその座標を取り出す
+            //gameobjectが1s静止するまでまってからその座標を取り出す
             this.transform.ObserveEveryValueChanged( x => x.position)
                           .Throttle(TimeSpan.FromSeconds(1))
                           .Subscribe( x => Debug.Log(x));
