@@ -15,7 +15,7 @@ namespace Samples.Section4.Converters
             Debug.Log("--- select ---");
 
             Observable.Range(1, 5)
-                      .Select( x => x*10)   //メッセージの内容を10倍する
+                      .Select( x => x*10 )   //メッセージの内容を10倍する
                       .Subscribe( x => Debug.Log(x));
 
             Debug.Log("--- cast ---");
